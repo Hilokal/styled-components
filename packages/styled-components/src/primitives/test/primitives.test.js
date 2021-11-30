@@ -57,7 +57,7 @@ describe('primitives', () => {
     const wrapper = TestRenderer.create(<Comp />);
     const view = wrapper.root.findByType('View');
 
-    expect(view.props.style).toEqual([{}]);
+    expect(view.props.style).toEqual({});
   });
 
   it('should fold successive styled() wrappings', () => {
@@ -72,7 +72,7 @@ describe('primitives', () => {
     const wrapper = TestRenderer.create(<Comp2 />);
     const view = wrapper.root.findByType('Text');
 
-    expect(view.props.style).toEqual([{ color: 'red', textAlign: 'left' }]);
+    expect(view.props.style).toEqual({ color: 'red', textAlign: 'left' });
   });
 
   it('should combine inline styles and the style prop', () => {
@@ -94,7 +94,7 @@ describe('primitives', () => {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
       });
     });
 
@@ -107,7 +107,7 @@ describe('primitives', () => {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         test: true,
       });
     });
@@ -124,7 +124,7 @@ describe('primitives', () => {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         copy: test,
         test,
       });
@@ -143,7 +143,7 @@ describe('primitives', () => {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         first: 'first',
         second: 'second',
         test: 'test',
@@ -163,7 +163,7 @@ describe('primitives', () => {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         first: 'first',
         second: 'second',
         test: 'test',
@@ -183,7 +183,7 @@ describe('primitives', () => {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         first: 'first',
         second: 'second',
       });
@@ -199,7 +199,7 @@ describe('primitives', () => {
 
       expect(text.props).toMatchObject({
         children: 'Probably a bad idea',
-        style: [{}],
+        style: {},
       });
     });
 
@@ -214,7 +214,7 @@ describe('primitives', () => {
 
       expect(text.props).toMatchObject({
         children: child,
-        style: [{}],
+        style: {},
       });
     });
 
@@ -229,7 +229,7 @@ describe('primitives', () => {
 
       expect(text.props).toMatchObject({
         children: child,
-        style: [{}],
+        style: {},
       });
     });
 
@@ -244,7 +244,7 @@ describe('primitives', () => {
 
       expect(text.props).toMatchObject({
         children: child,
-        style: [{}],
+        style: {},
       });
     });
 
@@ -263,7 +263,7 @@ describe('primitives', () => {
       expect(text.props).toMatchObject({
         children: 'Something else',
         'data-color': 'red',
-        style: [{}],
+        style: {},
       });
     });
   });
@@ -297,7 +297,7 @@ describe('primitives', () => {
       const view = wrapper.root.findByType('Text');
 
       expect(view.props).toHaveProperty('foo');
-      expect(view.props.style).toEqual([{ color: 'red' }]);
+      expect(view.props.style).toEqual({ color: 'red' });
     });
 
     it('withComponent should work', () => {

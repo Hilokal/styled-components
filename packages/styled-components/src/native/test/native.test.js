@@ -59,7 +59,7 @@ describe('native', () => {
     const wrapper = TestRenderer.create(<Comp />);
     const view = wrapper.root.findByType('View');
 
-    expect(view.props.style).toEqual([{}]);
+    expect(view.props.style).toEqual({});
   });
 
   it('should fold successive styled() wrappings', () => {
@@ -74,7 +74,7 @@ describe('native', () => {
     const wrapper = TestRenderer.create(<Comp2 />);
     const view = wrapper.root.findByType('Text');
 
-    expect(view.props.style).toEqual([{ color: 'red', textAlign: 'left' }]);
+    expect(view.props.style).toEqual({ color: 'red', textAlign: 'left' });
   });
 
   it('folds defaultProps', () => {
@@ -184,11 +184,11 @@ Object {
 
     const wrapper = TestRenderer.create(<Comp opacity={0.5} />);
 
-    expect(wrapper.root.findByType('View').props.style).toEqual([{ paddingTop: 5, opacity: 0.5 }]);
+    expect(wrapper.root.findByType('View').props.style).toEqual({ paddingTop: 5, opacity: 0.5 });
 
     wrapper.update(<Comp opacity={0.9} />);
 
-    expect(wrapper.root.findByType('View').props.style).toEqual([{ paddingTop: 5, opacity: 0.9 }]);
+    expect(wrapper.root.findByType('View').props.style).toEqual({ paddingTop: 5, opacity: 0.9 });
   });
 
   it('should forward the "as" prop if "forwardedAs" is used', () => {
@@ -212,7 +212,7 @@ Object {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
       });
     });
 
@@ -234,7 +234,7 @@ Object {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         test: true,
       });
     });
@@ -249,7 +249,7 @@ Object {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         copy: test,
         test,
       });
@@ -268,7 +268,7 @@ Object {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         first: 'first',
         second: 'second',
         test: 'test',
@@ -288,7 +288,7 @@ Object {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toEqual({
-        style: [{}],
+        style: {},
         first: 'first',
         second: 'second',
         test: 'test',
@@ -308,7 +308,7 @@ Object {
       const view = wrapper.root.findByType('View');
 
       expect(view.props).toMatchObject({
-        style: [{}],
+        style: {},
         first: 'first',
         second: 'second',
       });
@@ -324,7 +324,7 @@ Object {
 
       expect(text.props).toMatchObject({
         children: 'Probably a bad idea',
-        style: [{}],
+        style: {},
       });
     });
 
@@ -339,7 +339,7 @@ Object {
 
       expect(text.props).toMatchObject({
         children: child,
-        style: [{}],
+        style: {},
       });
     });
 
@@ -354,7 +354,7 @@ Object {
 
       expect(text.props).toMatchObject({
         children: child,
-        style: [{}],
+        style: {},
       });
     });
 
@@ -369,7 +369,7 @@ Object {
 
       expect(text.props).toMatchObject({
         children: child,
-        style: [{}],
+        style: {},
       });
     });
 
@@ -388,7 +388,7 @@ Object {
       expect(text.props).toMatchObject({
         children: 'Something else',
         'data-color': 'red',
-        style: [{}],
+        style: {},
       });
     });
 
@@ -400,7 +400,7 @@ Object {
       const wrapper = TestRenderer.create(<Comp theme={{ myColor: 'red' }}>Something else</Comp>);
       const text = wrapper.root.findByType('Text');
 
-      expect(text.props.style).toMatchObject([{ color: 'red' }]);
+      expect(text.props.style).toMatchObject({ color: 'red' });
     });
 
     it('theme in defaultProps works', () => {
@@ -412,7 +412,7 @@ Object {
       const wrapper = TestRenderer.create(<Comp>Something else</Comp>);
       const text = wrapper.root.findByType('Text');
 
-      expect(text.props.style).toMatchObject([{ color: 'red' }]);
+      expect(text.props.style).toMatchObject({ color: 'red' });
     });
   });
 
@@ -464,7 +464,7 @@ Object {
       const view = wrapper.root.findByType('Text');
 
       expect(view.props).toHaveProperty('foo');
-      expect(view.props.style).toEqual([{ color: 'red' }]);
+      expect(view.props.style).toEqual({ color: 'red' });
     });
 
     it('should omit transient props', () => {
@@ -483,7 +483,7 @@ Object {
     `;
       const wrapper = TestRenderer.create(<Comp filterThis="abc" passThru="def" />);
       const { props } = wrapper.root.findByType('View');
-      expect(props.style).toEqual([{ color: 'red' }]);
+      expect(props.style).toEqual({ color: 'red' });
       expect(props.passThru).toBe('def');
       expect(props.filterThis).toBeUndefined();
     });
@@ -497,7 +497,7 @@ Object {
       `;
       const wrapper = TestRenderer.create(<Comp filterThis="abc" passThru="def" />);
       const { props } = wrapper.root.findByType('View');
-      expect(props.style).toEqual([{ color: 'red' }]);
+      expect(props.style).toEqual({ color: 'red' });
       expect(props.passThru).toBe('def');
       expect(props.filterThis).toBeUndefined();
     });
@@ -527,7 +527,7 @@ Object {
       const wrapper = TestRenderer.create(<Comp as={AsComp} filterThis="abc" passThru="def" />);
       const { props } = wrapper.root.findByType(AsComp);
 
-      expect(props.style).toEqual([{ color: 'red' }]);
+      expect(props.style).toEqual({ color: 'red' });
       expect(props.passThru).toBe('def');
       expect(props.filterThis).toBeUndefined();
     });
@@ -542,7 +542,7 @@ Object {
       const wrapper = TestRenderer.create(<Comp as={AsComp} filterThis="abc" passThru="def" />);
       const { props } = wrapper.root.findByType(AsComp);
 
-      expect(props.style).toEqual([{ color: 'red' }]);
+      expect(props.style).toEqual({ color: 'red' });
       expect(props.passThru).toBe('def');
       expect(props.filterThis).toBeUndefined();
     });
@@ -556,7 +556,7 @@ Object {
       const wrapper = TestRenderer.create(<Comp as="a" filterThis="abc" passThru="def" />);
       const { props } = wrapper.root.findByType("a");
 
-      expect(props.style).toEqual([{ color: 'red' }]);
+      expect(props.style).toEqual({ color: 'red' });
       expect(props.passThru).toBe('def');
       expect(props.filterThis).toBeUndefined();
     });
@@ -571,7 +571,7 @@ Object {
       const wrapper = TestRenderer.create(<Comp $as="View" as={OtherText} />);
       const view = wrapper.root.findByType('View');
 
-      expect(view.props.style).toEqual([{ color: 'red' }]);
+      expect(view.props.style).toEqual({ color: 'red' });
       expect(() => wrapper.root.findByType('Text')).toThrowError();
     });
   });

@@ -35,7 +35,7 @@ class StyledNativeComponent extends Component<*, *> {
             forwardedAs,
             forwardedRef,
             testID,
-            style = [],
+            style,
             ...props
           } = this.props;
 
@@ -64,11 +64,16 @@ class StyledNativeComponent extends Component<*, *> {
             }
           }
 
-          propsForElement.style = typeof style === 'function' ?
-          (state) => {
-            return [generatedStyles].concat(style(state))
+          if (typeof style === 'function') {
+            propsForElement.style = (state: any) => {
+              return [generatedStyles].concat(style(state));
+            }
+          } else if (style == null) {
+            propsForElement.style = generatedStyles;
+          } else {
+            propsForElement.style = [generatedStyles].concat(style || []);
           }
-          : [generatedStyles].concat(style);
+
           propsForElement.testID = testID;
 
           if (forwardedRef) propsForElement.ref = forwardedRef;

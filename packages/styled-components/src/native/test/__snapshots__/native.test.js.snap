@@ -3,31 +3,21 @@
 exports[`native expanded API should omit transient props 1`] = `
 <Text
   style={
-    Array [
-      Object {
-        "color": "red",
-      },
-    ]
+    Object {
+      "color": "red",
+    }
   }
 />
 `;
 
 exports[`native expanded API withComponent should work 1`] = `
 <Text
-  style={
-    Array [
-      Object {},
-    ]
-  }
+  style={Object {}}
 />
 `;
 
 exports[`native expanded API withComponent should work 2`] = `
 <View
-  style={
-    Array [
-      Object {},
-    ]
-  }
+  style={Object {}}
 />
 `;
